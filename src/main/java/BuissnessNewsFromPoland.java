@@ -23,6 +23,7 @@ public class BuissnessNewsFromPoland {
     private ArticlesResponse articlesResponse;
     private List<Article> articlesList;
     private File file;
+    private FileWriter fileWriter;
 
     public BuissnessNewsFromPoland() {
     }
@@ -40,7 +41,6 @@ public class BuissnessNewsFromPoland {
         file = new File(RESULT_TEXT_FILE);
         final String SEPARATOR = ":";
 
-        FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(file);
 
@@ -51,14 +51,13 @@ public class BuissnessNewsFromPoland {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-
     }
 
     private void getArticlesResponseFromInputStreamReader() {
         articlesResponse = new Gson().fromJson(inputStreamReader, ArticlesResponse.class);
     }
 
-    private void openInputStreamFromUrl()  {
+    private void openInputStreamFromUrl() {
         try {
             inputStreamReader = new InputStreamReader(url.openStream());
         } catch (IOException exception) {
@@ -66,9 +65,9 @@ public class BuissnessNewsFromPoland {
         }
     }
 
-    private void createUrl(String country, String category, String pageSize, String apiKey){
+    private void createUrl(String country, String category, String pageSize, String apiKey) {
         try {
-            url =  new URL("https://newsapi.org/v2/top-headlines?country=" + country + "&category=" + category +
+            url = new URL("https://newsapi.org/v2/top-headlines?country=" + country + "&category=" + category +
                     "&pageSize=" + pageSize + "&apiKey=" + apiKey);
         } catch (MalformedURLException e) {
             e.printStackTrace();
