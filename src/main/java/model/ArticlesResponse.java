@@ -2,7 +2,7 @@
 package model;
 
 import java.util.List;
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
