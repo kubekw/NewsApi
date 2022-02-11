@@ -46,8 +46,8 @@ public class BuissnessNewsFromPoland {
 
             for (Article article : articlesList) {
                 fileWriter.write(article.getTitle() + SEPARATOR + article.getDescription() + SEPARATOR + article.getAuthor() + '\n');
-                fileWriter.close();
             }
+            fileWriter.close();
         } catch (IOException exception) {
             exception.printStackTrace();
         }
